@@ -12,8 +12,6 @@ def main():
     st.title("Demo Wikipedia App")
     st.write("Search topic, ask questions, get answers")
 
-    #Only for lottie animation as a bonus..
-
     # create a variable to load lottie animation using url
     lottie_animation = load_lottieurl("https://assets7.lottiefiles.com/packages/lf20_yhetm7ld.json")
     # finally to show it
@@ -49,9 +47,9 @@ def main():
             #display answer
             st.write(answer)
 
-#Lottie files for animations --> Only if we have enough time 
-# 1. pip install streamlit_lottie and then from streamlit_lottie import st_lottie
-# 2. pip install requests and import requests
+#Lottie files for animations --> first install:
+# 1. pip install streamlit_lottie 
+# 2. pip install requests
 def load_lottieurl(url:str):
     """
     This function is used to show an animation on the webpage
@@ -61,10 +59,6 @@ def load_lottieurl(url:str):
         return None 
 
     return r.json()
-
-#Function for load question answering pipeline
-#returns a pipeline 
-#Definition of a pipeline --> https://huggingface.co/docs/transformers/main_classes/pipelines
 
 def load_qa_pipeline() -> Pipeline:
     qa_pipeline = pipeline("question-answering", model="distilbert-base-uncased-distilled-squad")
